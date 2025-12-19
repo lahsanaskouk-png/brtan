@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskEarn - لوحة التحكم</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+</head>
+<body>
+    <!-- شريط التنعل العلوي -->
+    <nav class="navbar dashboard-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tasks"></i>
+                <span>TaskEarn</span>
+            </a>
+            
+            <div class="nav-user">
+                <div class="user-info">
+                    <span id="userEmail">جاري التحميل...</span>
+                    <span class="user-balance">رصيدك: <span id="userBalance">0</span> $</span>
+                </div>
+                <button class="btn btn-outline btn-sm" id="logoutBtn">تسجيل الخروج</button>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- لوحة التحكم الرئيسية -->
+    <div class="dashboard-container">
+        <!-- القائمة الجانبية -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link active">
+                    <i class="fas fa-home"></i>
+                    <span>الرئيسية</span>
+                </a>
+                <a href="#tasks" class="sidebar-link">
+                    <i class="fas fa-tasks"></i>
+                    <span>المهام المتاحة</span>
+                </a>
+                <a href="#completed-tasks" class="sidebar-link">
+                    <i class="fas fa-check-circle"></i>
+                    <span>المهام المكتملة</span>
+                </a>
+                <a href="#deposit" class="sidebar-link">
+                    <i class="fas fa-coins"></i>
+                    <span>إيداع الأموال</span>
+                </a>
+                <a href="#withdraw" class="sidebar-link">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>سحب الأموال</span>
+                </a>
+                <a href="#transactions" class="sidebar-link">
+                    <i class="fas fa-history"></i>
+                    <span>سجل المعاملات</span>
+                </a>
+                <a href="#profile" class="sidebar-link">
+                    <i class="fas fa-user"></i>
+                    <span>الملف الشخصي</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- المحتوى الرئيسي -->
+        <main class="dashboard-content">
+            <!-- بطاقة الترحيب والرصيد -->
+            <section class="welcome-card">
+                <div class="welcome-content">
+                    <h1>مرحباً، <span id="userName">مستخدم</span></h1>
+                    <p>استمر في إكمال المهام لزيادة أرباحك</p>
+                </div>
+                <div class="balance-card">
+                    <div class="balance-info">
+                        <h3>رصيدك الحالي</h3>
+                        <div class="balance-amount">
+                            <i class="fas fa-coins"></i>
+                            <span id="currentBalance">0</span> $
+                        </div>
+                        <div class="balance-actions">
+                            <button class="btn btn-primary" id="depositBtn">إيداع</button>
+                            <button class="btn btn-outline" id="withdrawBtn">سحب</button>
+                        </div>
+                    </div>
+                    <div class="balance-stats">
+                        <div class="stat">
+                            <span class="stat-label">المكاسب اليوم</span>
+                            <span class="stat-value" id="todayEarnings">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">المهام المكتملة</span>
+                            <span class="stat-value" id="completedTasks">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">إجمالي الأرباح</span>
+                            <span class="stat-value" id="totalEarnings">0</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- قسم المهام المتاحة -->
+            <section id="tasks" class="tasks-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-tasks"></i> المهام المتاحة</h2>
+                    <p>أكمل المهام واربح المال</p>
+                </div>
+                
+                <div class="tasks-list" id="tasksList">
+                    <!-- سيتم ملؤها بواسطة JavaScript -->
+                    <div class="loading">جاري تحميل المهام...</div>
+                </div>
+            </section>
+
+            <!-- قسم إيداع الأموال -->
+            <section id="deposit" class="deposit-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-coins"></i> إيداع الأموال</h2>
+                    <p>أضف أموالاً إلى حسابك لبدء الاستثمار</p>
+                </div>
+                
+                <div class="deposit-card">
+                    <div class="deposit-info">
+                        <h3>معلومات الإيداع</h3>
+                        <p>لإيداع الأموال، قم بإجراء تحويل بنكي إلى الحساب التالي مع كتابة الكود المطلوب في وصف التحويل</p>
+                        
+                        <div class="bank-details">
+                            <div class="detail-row">
+                                <span class="detail-label">اسم المستفيد:</span>
+                                <span class="detail-value">BROKERAGE</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">رقم الحساب (RIB):</span>
+                                <span class="detail-value">6846855221005800</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">الكود (يجب كتابته في وصف التحويل):</span>
+                                <span class="detail-value code">90931d1</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="deposit-form">
+                        <h3>تقديم طلب إيداع</h3>
+                        <p>بعد إجراء التحويل، املأ النموذج لتأكيد الإيداع</p>
+                        
+                        <form id="depositForm">
+                            <div class="form-group">
+                                <label for="depositAmount">المبلغ ($)</label>
+                                <input type="number" id="depositAmount" min="10" step="0.01" required placeholder="أدخل المبلغ">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="fullName">الاسم الكامل</label>
+                                <input type="text" id="fullName" required placeholder="أدخل اسمك الكامل">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="userRIB">رقم حسابك (RIB)</label>
+                                <input type="text" id="userRIB" required placeholder="أدخل رقم حسابك (24 رقم)" pattern="[0-9]{24}">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="proofImage">صورة إثبات التحويل</label>
+                                <div class="file-upload">
+                                    <input type="file" id="proofImage" accept="image/*" required>
+                                    <label for="proofImage" class="file-label">
+                                        <i class="fas fa-upload"></i>
+                                        <span>اختر صورة</span>
+                                    </label>
+                                    <span id="fileName">لم يتم اختيار صورة</span>
+                                </div>
+                                <small>يجب أن تكون الصورة واضحة وتظهر معلومات التحويل</small>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">إرسال طلب الإيداع</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- قسم سحب الأموال -->
+            <section id="withdraw" class="withdraw-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-money-bill-wave"></i> سحب الأموال</h2>
+                    <p>اسحب أرباحك إلى حسابك البنكي</p>
+                </div>
+                
+                <div class="withdraw-card">
+                    <div class="withdraw-info">
+                        <div class="available-balance">
+                            <h4>الرصيد المتاح للسحب</h4>
+                            <div class="balance-amount">
+                                <i class="fas fa-coins"></i>
+                                <span id="withdrawableBalance">0</span> $
+                            </div>
+                        </div>
+                        
+                        <div class="withdraw-form">
+                            <form id="withdrawForm">
+                                <div class="form-group">
+                                    <label for="withdrawAmount">المبلغ المطلوب ($)</label>
+                                    <input type="number" id="withdrawAmount" min="20" step="0.01" required placeholder="الحد الأدنى 20$">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="withdrawRIB">رقم حسابك (RIB)</label>
+                                    <input type="text" id="withdrawRIB" required placeholder="أدخل رقم حسابك (24 رقم)" pattern="[0-9]{24}">
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-block">طلب سحب</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="pending-withdrawals">
+                        <h3>طلبات السحب قيد الانتظار</h3>
+                        <div class="withdrawals-list" id="withdrawalsList">
+                            <!-- سيتم ملؤها بواسطة JavaScript -->
+                            <p class="empty-message">لا توجد طلبات سحب قيد الانتظار</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- نافذة التنبيهات -->
+    <div id="alertModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="alertTitle">تنبيه</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="alertMessage">هذا هو نص التنبيه</p>
+            </div>
+            <div class="modal-footer">
+                <button id="alertClose" class="btn btn-primary">حسناً</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
