@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskEarn - لوحة تحكم الأدمن</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar admin-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tasks"></i>
+                <span>TaskEarn</span>
+            </a>
+            
+            <div class="nav-user">
+                <div class="user-info">
+                    <span id="adminEmail">جاري التحميل...</span>
+                    <span class="user-role">مدير النظام</span>
+                </div>
+                <button class="btn btn-outline btn-sm" id="logoutBtn">تسجيل الخروج</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- لوحة تحكم الأدمن -->
+    <div class="admin-container">
+        <!-- القائمة الجانبية -->
+        <aside class="admin-sidebar">
+            <nav class="admin-nav-menu">
+                <a href="#dashboard" class="admin-nav-link active">
+                    <i class="fas fa-chart-line"></i>
+                    <span>الإحصائيات</span>
+                </a>
+                <a href="#users" class="admin-nav-link">
+                    <i class="fas fa-users"></i>
+                    <span>المستخدمين</span>
+                </a>
+                <a href="#tasks" class="admin-nav-link">
+                    <i class="fas fa-tasks"></i>
+                    <span>إدارة المهام</span>
+                </a>
+                <a href="#deposits" class="admin-nav-link">
+                    <i class="fas fa-coins"></i>
+                    <span>طلبات الإيداع</span>
+                </a>
+                <a href="#withdrawals" class="admin-nav-link">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>طلبات السحب</span>
+                </a>
+                <a href="#settings" class="admin-nav-link">
+                    <i class="fas fa-cog"></i>
+                    <span>الإعدادات</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- المحتوى الرئيسي -->
+        <main class="admin-content">
+            <!-- قسم الإحصائيات -->
+            <section id="dashboard" class="admin-section active">
+                <h2 class="admin-section-title">لوحة التحكم - نظرة عامة</h2>
+                
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>إجمالي المستخدمين</h3>
+                            <div class="stat-number" id="totalUsers">0</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>المهام النشطة</h3>
+                            <div class="stat-number" id="activeTasks">0</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>إجمالي الإيداعات</h3>
+                            <div class="stat-number" id="totalDeposits">0</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>إجمالي السحوبات</h3>
+                            <div class="stat-number" id="totalWithdrawals">0</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="admin-grid">
+                    <div class="recent-deposits">
+                        <h3>آخر طلبات الإيداع</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>المستخدم</th>
+                                        <th>المبلغ</th>
+                                        <th>الحالة</th>
+                                        <th>التاريخ</th>
+                                        <th>الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentDepositsTable">
+                                    <!-- سيتم ملؤها بواسطة JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="recent-withdrawals">
+                        <h3>آخر طلبات السحب</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>المستخدم</th>
+                                        <th>المبلغ</th>
+                                        <th>الحالة</th>
+                                        <th>التاريخ</th>
+                                        <th>الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentWithdrawalsTable">
+                                    <!-- سيتم ملؤها بواسطة JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- قسم المستخدمين -->
+            <section id="users" class="admin-section">
+                <div class="section-header">
+                    <h2 class="admin-section-title">إدارة المستخدمين</h2>
+                    <div class="section-actions">
+                        <div class="search-box">
+                            <input type="text" id="userSearch" placeholder="بحث عن مستخدم...">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>البريد الإلكتروني</th>
+                                <th>الرصيد</th>
+                                <th>تاريخ التسجيل</th>
+                                <th>الدور</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTable">
+                            <!-- سيتم ملؤها بواسطة JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- قسم إدارة المهام -->
+            <section id="tasks" class="admin-section">
+                <div class="section-header">
+                    <h2 class="admin-section-title">إدارة المهام</h2>
+                    <div class="section-actions">
+                        <button class="btn btn-primary" id="addTaskBtn">
+                            <i class="fas fa-plus"></i> إضافة مهمة جديدة
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tasks-management">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>العنوان</th>
+                                    <th>الوصف</th>
+                                    <th>المكافأة</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tasksTable">
+                                <!-- سيتم ملؤها بواسطة JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- قسم طلبات الإيداع -->
+            <section id="deposits" class="admin-section">
+                <div class="section-header">
+                    <h2 class="admin-section-title">طلبات الإيداع قيد الانتظار</h2>
+                </div>
+                
+                <div class="deposits-management">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>المستخدم</th>
+                                    <th>الاسم الكامل</th>
+                                    <th>المبلغ</th>
+                                    <th>رقم الحساب</th>
+                                    <th>إثبات التحويل</th>
+                                    <th>التاريخ</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pendingDepositsTable">
+                                <!-- سيتم ملؤها بواسطة JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- قسم طلبات السحب -->
+            <section id="withdrawals" class="admin-section">
+                <div class="section-header">
+                    <h2 class="admin-section-title">طلبات السحب قيد الانتظار</h2>
+                </div>
+                
+                <div class="withdrawals-management">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>المستخدم</th>
+                                    <th>المبلغ</th>
+                                    <th>رقم الحساب</th>
+                                    <th>التاريخ</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pendingWithdrawalsTable">
+                                <!-- سيتم ملؤها بواسطة JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- نافذة إضافة/تعديل المهمة -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="taskModalTitle">إضافة مهمة جديدة</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="taskForm">
+                    <input type="hidden" id="taskId">
+                    
+                    <div class="form-group">
+                        <label for="taskTitle">عنوان المهمة</label>
+                        <input type="text" id="taskTitle" required placeholder="أدخل عنوان المهمة">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="taskDescription">وصف المهمة</label>
+                        <textarea id="taskDescription" rows="4" required placeholder="أدخل وصف المهمة"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="taskReward">المكافأة ($)</label>
+                        <input type="number" id="taskReward" step="0.01" min="0.01" required placeholder="أدخل المكافأة">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="taskActive">حالة المهمة</label>
+                        <select id="taskActive">
+                            <option value="true">نشطة</option>
+                            <option value="false">غير نشطة</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" id="cancelTaskBtn">إلغاء</button>
+                <button type="button" class="btn btn-primary" id="saveTaskBtn">حفظ المهمة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة تعديل رصيد المستخدم -->
+    <div id="balanceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>تعديل رصيد المستخدم</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="balanceForm">
+                    <input type="hidden" id="balanceUserId">
+                    
+                    <div class="form-group">
+                        <label for="currentBalance">الرصيد الحالي</label>
+                        <input type="text" id="currentBalance" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="newBalance">الرصيد الجديد</label>
+                        <input type="number" id="newBalance" step="0.01" min="0" required placeholder="أدخل الرصيد الجديد">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="balanceReason">سبب التعديل</label>
+                        <textarea id="balanceReason" rows="3" placeholder="أدخل سبب تعديل الرصيد (اختياري)"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" id="cancelBalanceBtn">إلغاء</button>
+                <button type="button" class="btn btn-primary" id="saveBalanceBtn">حفظ التعديل</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة التنبيهات -->
+    <div id="alertModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="alertTitle">تنبيه</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="alertMessage">هذا هو نص التنبيه</p>
+            </div>
+            <div class="modal-footer">
+                <button id="alertClose" class="btn btn-primary">حسناً</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
