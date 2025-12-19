@@ -1,0 +1,266 @@
+/* تصميم صفحة المصادقة */
+.auth-section {
+    padding: 150px 0 100px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.auth-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 40px;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h1 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.auth-header p {
+    color: var(--gray-color);
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 15px;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gray-color);
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+}
+
+.auth-tab.active {
+    color: var(--secondary-color);
+}
+
+.auth-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    left: 0;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon i {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: var(--gray-color);
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding: 15px 45px 15px 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.input-with-icon input:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--gray-color);
+    cursor: pointer;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkbox input {
+    margin-left: 8px;
+}
+
+.checkbox span {
+    font-size: 0.9rem;
+}
+
+#forgotPassword {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+#forgotPassword:hover {
+    text-decoration: underline;
+}
+
+.auth-footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--gray-color);
+    padding-top: 20px;
+    border-top: 1px solid var(--light-gray);
+}
+
+.auth-footer a {
+    color: var(--secondary-color);
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+.reset-info {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+    margin-top: 5px;
+}
+
+.error-message {
+    color: var(--danger-color);
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
+}
+
+/* تصميم نافذة التنبيهات */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 500px;
+    overflow: hidden;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--light-color);
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-header h3 {
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--gray-color);
+    line-height: 1;
+}
+
+.modal-body {
+    padding: 30px 20px;
+}
+
+.modal-footer {
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* تصميم متجاوب */
+@media (max-width: 576px) {
+    .auth-container {
+        padding: 25px;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
