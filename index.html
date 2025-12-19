@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskEarn - منصة المهام والربح</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tasks"></i>
+                <span>TaskEarn</span>
+            </a>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="#features">المميزات</a>
+                <a href="#how-it-works">كيف تعمل</a>
+                <a href="#tasks">المهام</a>
+                <a href="auth.html" class="btn btn-outline">تسجيل الدخول</a>
+                <a href="auth.html?action=register" class="btn btn-primary">إنشاء حساب</a>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- قسم الهيرو -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>اربح من إنجاز المهام البسيطة</h1>
+                <p class="hero-subtitle">انضم إلى منصتنا وابدأ في كسب المال من خلال إكمال المهام اليومية. سهلة، سريعة، ومربحة!</p>
+                <div class="hero-buttons">
+                    <a href="auth.html?action=register" class="btn btn-primary btn-large">ابدأ الآن مجاناً</a>
+                    <a href="#how-it-works" class="btn btn-outline btn-large">كيفية العمل</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">5,247+</span>
+                        <span class="stat-label">مستخدم نشط</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">12,580+</span>
+                        <span class="stat-label">مهمة مكتملة</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">$25,320+</span>
+                        <span class="stat-label">تم دفعها</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="TaskEarn Platform">
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المميزات -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">لماذا تختار TaskEarn؟</h2>
+            <p class="section-subtitle">منصتنا توفر لك أسهل طريقة لربح المال من الإنترنت</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>مهام سهلة</h3>
+                    <p>مهام بسيطة تستطيع إكمالها في دقائق معدودة بدون أي متطلبات تقنية.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>أرباح فورية</h3>
+                    <p>احصل على أموالك مباشرة بعد إكمال المهام وتأكيدها من قبل الإدارة.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>آمن وموثوق</h3>
+                    <p>منصة آمنة مع نظام دفع مشفّر لحماية معلوماتك ومدفوعاتك.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>دعم فني</h3>
+                    <p>فريق دعم فني متاح على مدار الساعة لمساعدتك في أي استفسار.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم كيفية العمل -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">كيف تعمل المنصة؟</h2>
+            <p class="section-subtitle">4 خطوات بسيطة لتبدأ رحلتك في الربح من الإنترنت</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>أنشئ حسابك</h3>
+                        <p>سجّل في المنصة مجاناً خلال دقيقة واحدة فقط.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>اختر المهام</h3>
+                        <p>تصفح قائمة المهام المتاحة واختر ما يناسب مهاراتك ووقتك.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>أكمل المهام</h3>
+                        <p>أنجز المهام المطلوبة وارفع إثبات الإنجاز.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>احصل على أموالك</h3>
+                        <p>ستضاف الأرباح إلى رصيدك فور تأكيد المهمة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المهام -->
+    <section id="tasks" class="tasks-preview">
+        <div class="container">
+            <h2 class="section-title">مهام متاحة حالياً</h2>
+            <p class="section-subtitle">اختر من بين مئات المهام المتنوعة والمناسبة للجميع</p>
+            
+            <div class="tasks-grid">
+                <!-- سيتم ملؤها بواسطة JavaScript -->
+            </div>
+            
+            <div class="center">
+                <a href="auth.html?action=register" class="btn btn-primary btn-large">سجل الآن لعرض جميع المهام</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الإيداع -->
+    <section class="deposit-info">
+        <div class="container">
+            <div class="info-card">
+                <h2><i class="fas fa-coins"></i> طرق الإيداع والسحب</h2>
+                <p>نوفر لك طرق آمنة وسريعة للإيداع والسحب من خلال البنوك المحلية</p>
+                
+                <div class="deposit-details">
+                    <h3>معلومات الإيداع:</h3>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">الإسم:</span>
+                            <span class="detail-value">BROKERAGE</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">RIB:</span>
+                            <span class="detail-value">6846855221005800</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">الكود (في وصف التحويل):</span>
+                            <span class="detail-value code">90931d1</span>
+                        </div>
+                    </div>
+                    <p class="note"><i class="fas fa-info-circle"></i> تأكد من إدخال الكود في وصف التحويل لتسريع عملية التأكيد</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fas fa-tasks"></i>
+                        <span>TaskEarn</span>
+                    </a>
+                    <p>منصة رائدة في الربح من إنجاز المهام عبر الإنترنت. نقدم تجربة آمنة وموثوقة للمستخدمين.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#features">المميزات</a></li>
+                        <li><a href="#how-it-works">كيفية العمل</a></li>
+                        <li><a href="#tasks">المهام</a></li>
+                        <li><a href="auth.html">تسجيل الدخول</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>الدعم</h3>
+                    <ul>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">الشروط والأحكام</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>اتصل بنا</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> support@taskearn.com</li>
+                        <li><i class="fas fa-phone"></i> +212 123 456 789</li>
+                        <li><i class="fas fa-map-marker-alt"></i> الدار البيضاء، المغرب</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 TaskEarn. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
